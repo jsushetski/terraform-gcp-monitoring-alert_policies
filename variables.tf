@@ -26,6 +26,7 @@ variable "conditions_threshold" {
     trigger_count        = number
     trigger_percent      = number
   }))
+  description = "A list of objects representing threshold conditions."
 
   validation {
     condition = alltrue([
