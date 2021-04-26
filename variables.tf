@@ -10,6 +10,9 @@ variable "combiner" {
 }
 
 #variable "conditions_absent" {
+#  type = list(object({
+#  }))
+#  description = "A list of objects representing absent conditions."
 #}
 
 variable "conditions_threshold" {

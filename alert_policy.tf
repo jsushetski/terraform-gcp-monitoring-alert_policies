@@ -5,6 +5,15 @@ resource "google_monitoring_alert_policy" "alert_policy" {
 
   combiner = var.combiner
 
+  # absent conditions
+  #dynamic "conditions" {
+  #  for_each = var.conditions_absent
+  #  iteratior = condition
+  #
+  #  content {
+  #  }
+  #}
+
   # threshold conditions
   dynamic "conditions" {
     for_each = var.conditions_threshold
