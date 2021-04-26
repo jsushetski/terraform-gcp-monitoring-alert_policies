@@ -38,9 +38,17 @@ variable "conditions_threshold" {
   validation {
     condition = alltrue([
       for condition in var.conditions_threshold :
-        condition.duration >= 1 && condition.duration <= 60
+      condition.duration >= 1 && condition.duration <= 60
     ])
     error_message = "The value of 'duration' must be between 1 and 60."
+  }
+
+  validation {
+    condition = alltrue([
+      for condition in var.conditions_threshold :
+      contains(["REDUCE_NONE", "REDUCE_MEAN", "REDUCE_MIN", "REDUCE_MAX", "REDUCE_SUM", "REDUCE_STDDEV", "REDUCE_COUNT", "REDUCE_COUNT_TRUE", "REDUCE_COUNT_FALSE", "REDUCE_FRACTION_TIME", "REDUCE_PERCENTILE_99", "REDUCE_PERCENTILE_95", "REDUCE_PERCENTILE_50", "REDUCE_PERCENTILE_05"], condition.cross_series_reducer)
+    ])
+    error_message = "The value of 'cross_series_reducer' is not valid."
   }
 }
 
