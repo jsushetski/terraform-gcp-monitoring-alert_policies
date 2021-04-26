@@ -1,7 +1,3 @@
-output "debug1" {
-  value = "${var.conditions_threshold}"
-}
-
 resource "google_monitoring_alert_policy" "alert_policy" {
   provider = google
 
