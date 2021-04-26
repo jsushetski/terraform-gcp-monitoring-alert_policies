@@ -58,6 +58,14 @@ variable "conditions_threshold" {
     ])
     error_message = "The value of 'per_series_aligner' is not valid."
   }
+
+  validation {
+    condition = alltrue([
+      for condition in var.conditions_threshold :
+      condition.trigger_percent >= 0 && condition.duration <= 100
+    ])
+    error_message = "The value of 'trigger_percent' must be between 0 and 100."
+  }
 }
 
 variable "display_name" {
