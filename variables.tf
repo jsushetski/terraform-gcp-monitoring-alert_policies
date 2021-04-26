@@ -77,6 +77,12 @@ variable "display_name" {
   description = "Alert policy display name."
 }
 
+variable "notification_channels" {
+  type        = list(string)
+  default     = []
+  description = "A list of notification channels to be notified when the alert policy triggers."
+}
+
 variable "project" {
   type        = string
   description = "GCP project name."
