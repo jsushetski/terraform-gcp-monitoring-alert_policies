@@ -26,6 +26,14 @@ variable "conditions_threshold" {
     trigger_count        = number
     trigger_percent      = number
   }))
+
+  validation {
+    condition = alltrue([
+      for condition in var.conditions_threshold :
+      contains(["COMPARISON_GT", "COMPARISON_GE", "COMPARISON_LT", "COMPARISON_LE", "COMPARISON_EQ", "COMPARISON_NE"], condition.comparison)
+    ])
+    error_message = "The specified comparison is not valid."
+  }
 }
 
 variable "display_name" {
