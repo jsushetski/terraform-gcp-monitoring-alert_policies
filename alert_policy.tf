@@ -3,7 +3,7 @@ resource "google_monitoring_alert_policy" "alert_policy" {
 
   display_name = var.display_name
 
-  combiner     = var.combiner
+  combiner = var.combiner
 
   # threshold conditions
   dynamic "conditions" {

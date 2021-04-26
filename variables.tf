@@ -4,7 +4,7 @@ variable "combiner" {
   description = "Alert policy condition combiner."
 
   validation {
-    condition     = contains(["AND", "AND_WITH_MATCHING_RESOURCE", "OR",], var.combiner)
+    condition     = contains(["AND", "AND_WITH_MATCHING_RESOURCE", "OR", ], var.combiner)
     error_message = "The specified combiner is invalid."
   }
 }
