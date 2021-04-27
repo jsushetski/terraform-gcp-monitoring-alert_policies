@@ -77,6 +77,12 @@ variable "display_name" {
   description = "Alert policy display name."
 }
 
+variable "enable" {
+  type        = bool
+  default     = true
+  description = "Enables creation of the alert policy."
+}
+
 variable "notification_channels" {
   type        = list(string)
   default     = []

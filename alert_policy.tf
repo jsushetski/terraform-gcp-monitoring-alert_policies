@@ -1,6 +1,8 @@
 resource "google_monitoring_alert_policy" "alert_policy" {
   provider = google
 
+  count = var.enable ? 1 : 0
+
   display_name = var.display_name
 
   combiner = var.combiner
