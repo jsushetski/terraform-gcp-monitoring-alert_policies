@@ -31,7 +31,7 @@ resource "google_monitoring_alert_policy" "alert_policy" {
         threshold_value = condition.value.threshold_value
 
         aggregations {
-          alignment_period     = condition.value.alignment_period
+          alignment_period     = "${condition.value.alignment_period}s"
           cross_series_reducer = condition.value.cross_series_reducer
           group_by_fields      = condition.value.group_by_fields
           per_series_aligner   = condition.value.per_series_aligner
