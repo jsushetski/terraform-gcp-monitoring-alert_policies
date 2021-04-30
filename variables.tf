@@ -42,7 +42,7 @@ variable "conditions_threshold" {
   validation {
     condition = alltrue([
       for condition in var.conditions_threshold :
-      condition.duration >= 1 && condition.duration <= 60
+      condition.duration % 60 == 0
     ])
     error_message = "The value of 'duration' must be between 1 and 60."
   }
